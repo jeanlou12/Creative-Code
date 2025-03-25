@@ -1,38 +1,26 @@
-let img;
-function preload(){
-
-  img=loadImage('catss.jpg')
+var img, x, y;
+function preload() {
+img = loadImage("butterfly.jpg");
 
 }
 
 
 
 function setup() {
-  createCanvas(700, 500);
-  background('pink');
-  
-  
- 
+createCanvas (400, 400);
+background(0);
+noStroke();
 
-  img.resize(200,200);
+}
 
-  let cnv5 = createGraphics(200,200);
-  cnv5.triangle(0,0,100,200,200,0);
-  noStroke();
-  img.mask(cnv5);
-  image(img,300,25);
 
-  
 
-  
+function draw() {
+x = random(width);
+y = random(height);
 
-  img.resize(200,200);
-
-  let cnv7 = createGraphics(200,200);
-  cnv7.triangle(0,0,100,200,200,0);
-  noStroke();
-  cnv7.canvas.getContext("2d").clip();
-  cnv7.image(img,0,0);
-  image(cnv7,350,225);
+var c = img.get(x, y); 
+fill(c[0], c[1], c[2], 50); 
+ellipse (x, y, 30, 30);
 
 }
